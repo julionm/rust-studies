@@ -27,11 +27,26 @@ Pointer always point to some stack stored values and can point to null values, r
 Borrowing is the technique in rust of literally borrowing reference of a variable to another, when you pass a reference to some data to a function, the value is borrowed to the variable in the scope of the function to maintain the original value untouched even if the function is over and the scope ended, preserving this way the old state of the variable passed as parameter.
 
 
+### What is the purpose of structs and for what it's used for?
+
+Structs are used to store organized data of the same subject, so if we need to save some information about a User, we can create a struct to store in it the username, password, age and if it's enable inside one User instance. Creating an variable of the type created in the struct results in an instance of that struct saved in memory. Their structure follows something like this:
+```
+struct User {
+    username: String,
+    password: String,
+    age: u16,
+    enable: bool
+}
+```
+
+
+
 ## Future Concepts
 - Dereferencing
 - Lifetimes
 - Iterators
 - Deref coertions
+- Unsafe Rust (https://doc.rust-lang.org/nomicon/)
 
 ## General Annotations
 - Rust handles only one mutable reference per data type at a time

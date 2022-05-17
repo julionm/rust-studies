@@ -38,7 +38,21 @@ struct User {
     enable: bool
 }
 ```
+OBS: additionaly is possible to create mutable struct instances using:
+```
+let mut user = User {
+    username: String::from("julio_negri"),
+    password: String::from("strong_pwd"),
+    age: 21,
+    enable: true
+}
+```
 
+### Name the differences between functions and methods.
+
+Both execute code inside them, may receive parameters and return values, but instead of a function mehtos are defined within the context of a struct, enabling it to access the struct properties through the self parameter.
+
+### What is an associated function?
 
 
 ## Future Concepts
@@ -47,6 +61,7 @@ struct User {
 - Iterators
 - Deref coertions
 - Unsafe Rust (https://doc.rust-lang.org/nomicon/)
+- Automatic Referencing and Deferencing
 
 ## General Annotations
 - Rust handles only one mutable reference per data type at a time
@@ -56,3 +71,36 @@ struct User {
     - There’s no mechanism being used to synchronize access to the data
 - String slices, variables that reference the middle of the string, rather than the first element
 - Ranges that start in zero can abstract it, making 0..5 = ..5
+- It's possible to add other struct values into another using the syntax
+    ```
+
+    fn main() {
+        // user 1 definition
+
+        let user2 = User {
+            username: String::from("julio_negri"),
+            ..user1
+        }
+    }
+
+    ```
+    If the user1 had only brought, stack-only data, than the user1 instance would still be valid
+    through the rest of the scope, but in this the object has String's inside, so the values are
+    moved to user2 and user1 is invalidated in the scope.
+- Exist two more ways to create structs
+    ```
+
+    struct Coord(i32, i32);
+
+    struct Color_RGB(str, str, str);
+
+    fn main() {
+
+        let coord_init = Coord(10, 10);
+
+        let color_bg = Color_RGB("ff", "ff", "ff");
+
+    }
+
+    ```
+

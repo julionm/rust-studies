@@ -37,17 +37,13 @@ fn get_values_and_calculate(chosen_operation: i32) {
     let x = get_value();
     let y = get_value();
 
-    let mut result = 0;
-
-    if chosen_operation == 1 {
-        result = x + y;
-    } else if chosen_operation == 2 {
-        result = x - y;
-    } else if chosen_operation == 3 {
-        result = x/y;
-    } else if chosen_operation == 4 {
-        result = x*y;
-    }
+    let result: i32 = match chosen_operation {
+        1 => x + y,
+        2 => x - y,
+        3 => x / y,
+        4 => x * y,
+        _ => 0
+    };
 
     println!("\nThe result is: {}\n", result);
 

@@ -54,14 +54,17 @@ Both execute code inside them, may receive parameters and return values, but ins
 
 ### What is an associated function?
 
+The associated functions are normally used to generate new instances of an struct, like constructors in other languages, they don't receive the self attribute, used by the methods to acces the inner properties of an struct and are detached of the context of it.
+
 
 ## Future Concepts
-- Dereferencing
 - Lifetimes
 - Iterators
 - Deref coertions
-- Unsafe Rust (https://doc.rust-lang.org/nomicon/)
 - Automatic Referencing and Deferencing
+- Generic type parameter
+- Panics
+- Unsafe Rust (https://doc.rust-lang.org/nomicon/)
 
 ## General Annotations
 - Rust handles only one mutable reference per data type at a time
@@ -103,4 +106,5 @@ Both execute code inside them, may receive parameters and return values, but ins
     }
 
     ```
+- Enums may have his own methods
 

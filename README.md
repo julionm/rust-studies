@@ -38,7 +38,7 @@ struct User {
     enable: bool
 }
 ```
-OBS: additionaly is possible to create mutable struct instances using:
+> OBS: additionaly is possible to create mutable struct instances using:
 ```
 let mut user = User {
     username: String::from("julio_negri"),
@@ -56,7 +56,6 @@ Both execute code inside them, may receive parameters and return values, but ins
 
 The associated functions are normally used to generate new instances of an struct, like constructors in other languages, they don't receive the self attribute, used by the methods to acces the inner properties of an struct and are detached of the context of it.
 
-
 ## Future Concepts
 - Lifetimes
 - Iterators
@@ -64,6 +63,7 @@ The associated functions are normally used to generate new instances of an struc
 - Automatic Referencing and Deferencing
 - Generic type parameter
 - Panics
+- Cargo Workspaces
 - Unsafe Rust (https://doc.rust-lang.org/nomicon/)
 
 ## General Annotations
@@ -107,4 +107,10 @@ The associated functions are normally used to generate new instances of an struc
 
     ```
 - Enums may have his own methods
+- When using the `match`, the `_` is used to represent the default value
+- Packages are the projects we create using cargo
+- Modules are used to separate source code, they control the privacy of the items
+- Crates are the dependencies and libs we add to the project
+- The module structure of the crate is named *module tree*
+
 

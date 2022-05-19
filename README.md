@@ -62,7 +62,7 @@ The associated functions are normally used to generate new instances of an struc
 
 We start saying that all functions, structs, methods, enums and constants are treated as they are private by default. What the  
  privacy boundaries actually does is secure a code that should never be used outside it's context, making your code safier  
- because it won't receive changes that could break some of their defined rules and behaviours. The 
+ because it won't receive changes that could break some of their defined rules and behaviours.
 
 ---
 
@@ -126,3 +126,5 @@ We start saying that all functions, structs, methods, enums and constants are tr
 - The module structure of the crate is named *module tree*
 - The navigation through modules are like navigating through a file system, having two ways to achieve  
   the wanted function
+- The child modules can see ancestor modules because it can see the context where they're defined, otherwise  
+  ancestor modules can't see their child's implementations

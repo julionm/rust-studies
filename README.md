@@ -136,6 +136,6 @@ We start saying that all functions, structs, methods, enums and constants are tr
 - If the import is an enum, struct or any other element it should be used the full path to that element
 - Its possible to rename conflicting named imports by using the `as` keyword
 - The module's code are stored inside files with it's names, therefore, we use the:
-  > ``` pub mod new_module; ```  
+  > ``` pub mod new_module; ```
   to call it inside the file we need to use
   

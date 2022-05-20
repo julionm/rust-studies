@@ -135,3 +135,7 @@ We start saying that all functions, structs, methods, enums and constants are tr
   you need, because it's the more idiomatic way, making it more readable and padronized
 - If the import is an enum, struct or any other element it should be used the full path to that element
 - Its possible to rename conflicting named imports by using the `as` keyword
+- The module's code are stored inside files with it's names, therefore, we use the:
+  > ``` pub mod new_module; ```  
+  to call it inside the file we need to use
+  

@@ -2,7 +2,7 @@
 
 > Current Book Chapter: 7.3
 
-Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language’, available at: https://doc.rust-lang.org/book/.
+Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
 ### How does occur the memory allocation?
 
@@ -128,3 +128,10 @@ We start saying that all functions, structs, methods, enums and constants are tr
   the wanted function
 - The child modules can see ancestor modules because it can see the context where they're defined, otherwise  
   ancestor modules can't see their child's implementations
+- Structs and enums are treated different when talking about privacy, if the struct is public  
+  all of it's fields are private by default, so if a field should be public it has to have the `pub` keyword
+- Enums variants though, follow the struct privacy, if it's public then all variants are public too
+- When importing a function inside a module, the right way to do it is importing the all the parent module to get the function  
+  you need, because it's the more idiomatic way, making it more readable and padronized
+- If the import is an enum, struct or any other element it should be used the full path to that element
+- Its possible to rename conflicting named imports by using the `as` keyword

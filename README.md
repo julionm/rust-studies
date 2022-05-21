@@ -1,6 +1,6 @@
 # Rust Knowledge
 
-> Current Book Chapter: 7.3
+> Current Book Chapter: 8.1
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -136,6 +136,8 @@ We start saying that all functions, structs, methods, enums and constants are tr
 - If the import is an enum, struct or any other element it should be used the full path to that element
 - Its possible to rename conflicting named imports by using the `as` keyword
 - The module's code are stored inside files with it's names, therefore, we use the:
-  > ``` pub mod new_module; ```
+> ``` pub mod new_module; ```
   to call it inside the file we need to use
-  
+- rust vectors can store any kind of value, it handle the generic type like `Vec<T>`, when all values have the same type, Rust  
+  infers the type to the array making `vec![1,2,3] = Vec<i32>`.
+- just like structs, when the scope ends vectors and their values are dropped (freed from memory)

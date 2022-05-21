@@ -64,6 +64,12 @@ We start saying that all functions, structs, methods, enums and constants are tr
  privacy boundaries actually does is secure a code that should never be used outside it's context, making your code safier  
  because it won't receive changes that could break some of their defined rules and behaviours.
 
+### What's the problem when saving a reference to an Vector index, changing the vector and accessing the reference later?
+
+The answer to the question is explaining how works the vectors in the background.  
+Rust for its own, store all vector's values next to each other in memory, considering the reference to index 0 is stored inside an X variable, if new values are added to the vector, there's a chance it's not enough memory available allocated in that space, if that's the case then the memory allocator will copy all the values and transfer to a new space with enough size. Therefore, our declared X variable will reference a deallocated memory space, making it invalid, the borrowing rules prevent this to happen.  
+Because of this situation, there's a rule that states you can't have mutable and immutable references in the same scope.
+
 ---
 
 ## Future Concepts

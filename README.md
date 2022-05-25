@@ -1,6 +1,6 @@
 # Rust Knowledge
 
-> Current Book Chapter: 8.1
+> Current Book Chapter: 9.1
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -141,9 +141,15 @@ Because of this situation, there's a rule that states you can't have mutable and
   you need, because it's the more idiomatic way, making it more readable and padronized
 - If the import is an enum, struct or any other element it should be used the full path to that element
 - Its possible to rename conflicting named imports by using the `as` keyword
-- The module's code are stored inside files with it's names, therefore, we use the:
+- The module's code are stored inside files with it's names, therefore, we use the: to call it inside the file we need to use:
 > ``` pub mod new_module; ```
-  to call it inside the file we need to use
 - rust vectors can store any kind of value, it handle the generic type like `Vec<T>`, when all values have the same type, Rust  
   infers the type to the array making `vec![1,2,3] = Vec<i32>`.
 - just like structs, when the scope ends vectors and their values are dropped (freed from memory)
+- **OBS:** Rust must know the type of the values inside a vector to know how much memory will be needed in heap to store  
+  those values
+- `push_str` doesn't take ownership of the value passed to it
+- Rust doesn`t support string indexing
+- Strins are stored as byte vectors using `Vec<u8>`, usually each value corresponds for a unique letter, but there's linguistics cases where it don't happen as expected, so to prevent this error cases, rust gives an error when we try to index a string value
+- there`s another reason rust doens't permit string indexing: performance, as a byte vector Rust can't guarantee the expected time, cause to reach the wanted index Rust would need to run through all of indexes 'till find the one the user requested
+- by default, rust uses a SplitHash algorithm in HashMap, it's much slower than others but it's more secure too so the trade-off, less performance, more security is good.

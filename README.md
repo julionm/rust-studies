@@ -1,6 +1,6 @@
 # Rust Knowledge
 
-> Current Book Chapter: 9.1
+> Current Book Chapter: 10
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -69,6 +69,14 @@ We start saying that all functions, structs, methods, enums and constants are tr
 The answer to the question is explaining how works the vectors in the background.  
 Rust for its own, store all vector's values next to each other in memory, considering the reference to index 0 is stored inside an X variable, if new values are added to the vector, there's a chance it's not enough memory available allocated in that space, if that's the case then the memory allocator will copy all the values and transfer to a new space with enough size. Therefore, our declared X variable will reference a deallocated memory space, making it invalid, the borrowing rules prevent this to happen.  
 Because of this situation, there's a rule that states you can't have mutable and immutable references in the same scope.
+
+### How does the Rust unwinding happends?
+
+When some Rust program suffers a panic error, the default behavior is to unwind through the functions it entered and cleans up all the stack memory, the process itself is a lot of work to the compiler, so Rust gives the option to just abort the program and leave the clean process to the OS.
+
+### How to use the `?` operator for error handling?
+
+The `?` operator is a replace for `match` expressions to catch errors. If a method returns a `Result` enum, it'll automatically check if occured an exception and propagate it, returning the error immediately when it's catched. The only counterpart is that by default, it converts the error object to the one declared in the function declaration, so it's better used in cases where only one kind of error is possible.
 
 ---
 
@@ -142,7 +150,7 @@ Because of this situation, there's a rule that states you can't have mutable and
 - If the import is an enum, struct or any other element it should be used the full path to that element
 - Its possible to rename conflicting named imports by using the `as` keyword
 - The module's code are stored inside files with it's names, therefore, we use the: to call it inside the file we need to use:
-> ``` pub mod new_module; ```
+  > ``` pub mod new_module; ```
 - rust vectors can store any kind of value, it handle the generic type like `Vec<T>`, when all values have the same type, Rust  
   infers the type to the array making `vec![1,2,3] = Vec<i32>`.
 - just like structs, when the scope ends vectors and their values are dropped (freed from memory)
@@ -152,4 +160,10 @@ Because of this situation, there's a rule that states you can't have mutable and
 - Rust doesn`t support string indexing
 - Strins are stored as byte vectors using `Vec<u8>`, usually each value corresponds for a unique letter, but there's linguistics cases where it don't happen as expected, so to prevent this error cases, rust gives an error when we try to index a string value
 - there`s another reason rust doens't permit string indexing: performance, as a byte vector Rust can't guarantee the expected time, cause to reach the wanted index Rust would need to run through all of indexes 'till find the one the user requested
-- by default, rust uses a SplitHash algorithm in HashMap, it's much slower than others but it's more secure too so the trade-off, less performance, more security is good.
+- by default, rust uses a SplitHash algorithm in HashMap, it's much slower than others but it's more secure too so the trade-off, less performance, more security is good
+- unrecoverable errors are those that make the application unable to continue running or that may cause a failure of security, like the buffer overread problem, that can cause some invaders to access other memory locations from the reference apointing to a null space
+- Cases to `panic!`: to panic the code is a good choice when it we'll be in a _bad state_, i.e. when other code passes wrong values to your lib, this would be a good choice to panic, to alert the user that he's passing the wrong values during development, causing it not breaking when on production
+- the _bad state_ happens when your code relies in the existence of a username value, for example, you won't check every time you use the `username` variable if it has some content, cause your code really need this, so for better functioning it should warn the user that it MUST be defined
+- **out-of-bound memory access**: access a memory that is no longer managed by the program
+- **function contracts**: means that the correct behaviour of a function relies on it's parameters meeting the requirements this function needs
+- 

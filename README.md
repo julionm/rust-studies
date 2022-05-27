@@ -32,7 +32,7 @@ Borrowing is the technique in rust of literally borrowing reference of a variabl
 ### What is the purpose of structs and for what it's used for?
 
 Structs are used to store organized data of the same subject, so if we need to save some information about a User, we can create a struct to store in it the username, password, age and if it's enable inside one User instance. Creating an variable of the type created in the struct results in an instance of that struct saved in memory. Their structure follows something like this:
-```
+```rust
 struct User {
     username: String,
     password: String,
@@ -41,7 +41,7 @@ struct User {
 }
 ```
 > OBS: additionaly is possible to create mutable struct instances using:
-```
+```rust
 let mut user = User {
     username: String::from("julio_negri"),
     password: String::from("strong_pwd"),
@@ -78,6 +78,10 @@ When some Rust program suffers a panic error, the default behavior is to unwind 
 
 The `?` operator is a replace for `match` expressions to catch errors. If a method returns a `Result` enum, it'll automatically check if occured an exception and propagate it, returning the error immediately when it's catched. The only counterpart is that by default, it converts the error object to the one declared in the function declaration, so it's better used in cases where only one kind of error is possible.
 
+### What is _Monomorphization_?
+
+When using Generics in any language there's a concern in the performance of the code, but in rust with the _monomorphization_ it's not a problem at all, the process create in compile time all the code that will be used. If there´s a enum over a generic type and it's implemented using a `String` and a `u32` values, two enums are created for each use, ensuring a performatic and readable code.
+
 ---
 
 ## Future Concepts
@@ -101,7 +105,7 @@ The `?` operator is a replace for `match` expressions to catch errors. If a meth
 - String slices, variables that reference the middle of the string, rather than the first element
 - Ranges that start in zero can abstract it, making 0..5 = ..5
 - It's possible to add other struct values into another using the syntax
-    ```
+    ```rust
 
     fn main() {
         // user 1 definition
@@ -117,7 +121,7 @@ The `?` operator is a replace for `match` expressions to catch errors. If a meth
     through the rest of the scope, but in this the object has String's inside, so the values are
     moved to user2 and user1 is invalidated in the scope.
 - Exist two more ways to create structs
-    ```
+    ```rust
 
     struct Coord(i32, i32);
 
@@ -166,4 +170,5 @@ The `?` operator is a replace for `match` expressions to catch errors. If a meth
 - the _bad state_ happens when your code relies in the existence of a username value, for example, you won't check every time you use the `username` variable if it has some content, cause your code really need this, so for better functioning it should warn the user that it MUST be defined
 - **out-of-bound memory access**: access a memory that is no longer managed by the program
 - **function contracts**: means that the correct behaviour of a function relies on it's parameters meeting the requirements this function needs
-- 
+- when using angle brackets syntax to make a function or struct generic: `struct Point<T> || fn func<T> (var: T)` the correct is to say that the function or struct is generic over some type `T`
+- traits are used to describe shared behaviour in rust structs

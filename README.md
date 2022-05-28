@@ -1,6 +1,6 @@
 # Rust Knowledge
 
-> Current Book Chapter: 10
+> Current Book Chapter: 10.3
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -81,6 +81,15 @@ The `?` operator is a replace for `match` expressions to catch errors. If a meth
 ### What is _Monomorphization_?
 
 When using Generics in any language there's a concern in the performance of the code, but in rust with the _monomorphization_ it's not a problem at all, the process create in compile time all the code that will be used. If there´s a enum over a generic type and it's implemented using a `String` and a `u32` values, two enums are created for each use, ensuring a performatic and readable code.
+
+### What's the difference between `Copy` and `Clone` ?
+
+`Copy` is implicit, inexpensive and cannot be re-implemented 
+`Clone` is explicit, may be expensive and may be re-implemented
+
+The `Clone`  is explicit, therefore it needs to be declared, as it's a more geenric trait, it can be reimplemented in other types to do arbitrary stuff and since it´s more generic than the other one the values that implement `Copy` may implement `Clone` as well.
+
+`Copy` is a bitwise copy, therefore it copies every bit of the value to another memory location (variable) using the `memcpy()` function.
 
 ---
 
@@ -172,3 +181,4 @@ When using Generics in any language there's a concern in the performance of the 
 - **function contracts**: means that the correct behaviour of a function relies on it's parameters meeting the requirements this function needs
 - when using angle brackets syntax to make a function or struct generic: `struct Point<T> || fn func<T> (var: T)` the correct is to say that the function or struct is generic over some type `T`
 - traits are used to describe shared behaviour in rust structs
+- the dangling reference is a problem where a reference points to other value than the value it was suppose to

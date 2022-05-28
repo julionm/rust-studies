@@ -31,7 +31,6 @@ impl<T, U> GenericPoint<T, U> {
 }
 
 fn main() {
-
     let new_generic_point = GenericPoint {
         x: 10,
         y: 5.5
@@ -42,25 +41,25 @@ fn main() {
         y: 10
     };
 
-    // let array1 = vec![10, 20, 30, 23, 45, 5];
+    let array1 = vec![10, 20, 30, 23, 45, 5];
 
-    // println!("{}", largest(&array1));
+    println!("{}", largest(&array1));
 
-    // let array2 = vec!['a', 'v', 'z', 'c'];
+    let array2 = vec!['a', 'v', 'z', 'c'];
 
-    // println!("{}", largest(&array2));
+    println!("{}", largest(&array2));
 
 }
 
-// fn largest<T>(list: &[T]) -> T {
+fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
 
-//     let mut largest = list[0];
+    let mut largest = list[0];
 
-//     for &i in list {
-//         if i > largest {
-//             largest = i;
-//         }
-//     }
+    for &i in list {
+        if i > largest {
+            largest = i;
+        }
+    }
 
-//     largest
-// }
+    largest
+}

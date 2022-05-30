@@ -1,6 +1,6 @@
 # Rust Knowledge
 
-> Current Book Chapter: 10.3
+> Current Book Chapter: 11
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -178,7 +178,38 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - Cases to `panic!`: to panic the code is a good choice when it we'll be in a _bad state_, i.e. when other code passes wrong values to your lib, this would be a good choice to panic, to alert the user that he's passing the wrong values during development, causing it not breaking when on production
 - the _bad state_ happens when your code relies in the existence of a username value, for example, you won't check every time you use the `username` variable if it has some content, cause your code really need this, so for better functioning it should warn the user that it MUST be defined
 - **out-of-bound memory access**: access a memory that is no longer managed by the program
-- **function contracts**: means that the correct behaviour of a function relies on it's parameters meeting the requirements this function needs
+- **function contracts**: means that the correct behaviour of a function relies on it's parameters **meeting** the requirements this function needs
 - when using angle brackets syntax to make a function or struct generic: `struct Point<T> || fn func<T> (var: T)` the correct is to say that the function or struct is generic over some type `T`
 - traits are used to describe shared behaviour in rust structs
 - the dangling reference is a problem where a reference points to other value than the value it was suppose to
+
+
+## ANNOTATIONS ABOUT LIFETIMES
+
+I prefered to create a separate part for lifetimes due to the amount of content and complexity it took me to learn it.
+
+- lifetimes is the time where the references keep alive
+- the lifetime annotation use in function signatures, creates a contract in the function, that ensures the lifetime of the returned value is the same as the arguments received in the function, as the following example:
+  ```rust
+
+  fn longest<'a>(arg1: &'a str, arg2: &'a str) -> &'a str {
+
+  }
+  ```
+- _lifetime elisions_ are a set of rules that rust created to assist programmers that used to write duplicate code a lot in the past, when declaring lifetimes many times it's needed to declare the lifetime multiple times, in the function, in the argument and in the return type so the rust team made the borrow checker do it in compile time, so in some cases the lifetimes are infered in the code
+- those inferences are not full, if rust doesn't have full information to infer, it won't guess the lifetime of the parameter or the return type
+- lifetimes on functions and methods are called *input lifetimes*
+- lifetimes on return values are *output lifetimes*
+- there's three rules to the lifetime inferation happen, if it fails to figure out the lifetime for any reference an error will be returned, these rules apply for ```fn``` definitions and ```impl``` blocks
+  - FIRST RULE: Rust gives a lifetime for each parameter that's a reference in the function, fn with 1 argument has 1 lifetime parameter
+  - SECOND RULE: if there's exatcly one input *lifetime parameter*, the same lifetime is used on the output lifetime parameter
+  - THIRD RULE: on methods, the self lifetime is assigned to all output lifetime parameters
+- the static lifetime: this lifetime indication, tell rust those references will live through the entire execution of the program, is used as ```'static```, the lifetime for all string literals is static
+- example usage of generics + lifetimes + trait bounds:
+  ```rust
+
+  fn longes_with_an_announcemennt<'a, T>(x: &'a str, y: &'a str, ann: T) {
+    ...
+  }
+
+  ```

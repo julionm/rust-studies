@@ -1,6 +1,12 @@
+# Joined The #100DaysOfCode Challenge
+I commit myself to:
+- Update this repository everyday with some new content
+- Study at least 1 hour of Rust (or Haskell) everyday
+- Think a way to automatize some of the updates using Rust
+
 # Rust Knowledge
 
-> Current Book Chapter: 11
+> Current Book Chapter: 11.1
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -94,14 +100,15 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 ---
 
 ## Future Concepts
-- Lifetimes
+- Lifetimes - **OK**
 - Iterators
 - Deref coertions
 - Automatic Referencing and Deferencing
-- Generic type parameter
-- Panics
+- Generic type parameter - **OK**
+- Panics - **OK**
 - Cargo Workspaces
 - Unsafe Rust (https://doc.rust-lang.org/nomicon/)
+- Glob
 
 ---
 

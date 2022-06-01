@@ -6,7 +6,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 11.3
+> Current Book Chapter: 12.4
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -189,6 +189,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - when using angle brackets syntax to make a function or struct generic: `struct Point<T> || fn func<T> (var: T)` the correct is to say that the function or struct is generic over some type `T`
 - traits are used to describe shared behaviour in rust structs
 - the dangling reference is a problem where a reference points to other value than the value it was suppose to
+- ```cargo clean``` IT SAVES LIVES
 
 
 ## ANNOTATIONS ABOUT LIFETIMES

@@ -1,5 +1,4 @@
-use std::{env, process, fs};
-use std::error::Error;
+use std::{env, process};
 
 use minigrep::Config;
 

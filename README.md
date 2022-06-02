@@ -189,7 +189,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - when using angle brackets syntax to make a function or struct generic: `struct Point<T> || fn func<T> (var: T)` the correct is to say that the function or struct is generic over some type `T`
 - traits are used to describe shared behaviour in rust structs
 - the dangling reference is a problem where a reference points to other value than the value it was suppose to
-- ```cargo clean``` IT SAVES LIVES
+- `cargo clean` IT SAVES LIVES
 
 
 ## ANNOTATIONS ABOUT LIFETIMES
@@ -221,3 +221,9 @@ I prefered to create a separate part for lifetimes due to the amount of content 
   }
 
   ```
+
+## Build and add to PATH
+
+When i finished the program of Chapter 12, i had some doubts about how to use my program through the OS, some amazing guys helped me and that's what they told me:
+- `cargo build --release` the released artifact will be on target/debug/{project_name}
+- then, in the root directory of the application do:  `cargo install --path .`

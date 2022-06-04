@@ -25,15 +25,11 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 // rust needs to know from which argument the slices were made
 // so we use lifetime to sign that
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
-    let mut results = Vec::new();
-
-    for line in contents.lines() {
-        if line.contains(query) {
-            results.push(line);
-        }
-    }
-
-    results
+    // * iterators are a zero-cost abstraction
+    contents
+        .lines()
+        .filter(|line| line.contains(query))
+        .collect()
 }
 
 pub fn search_case_insensitive<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
@@ -59,13 +55,24 @@ pub struct Config {
 
 impl Config {
     // ! didn't get the need of the annotation about static lifetime here
-    pub fn new(args: &[String]) -> Result<Config, &'static str> {
-        if args.len() < 3 {
-            return Err("not enough arguments")
-        }
+    pub fn new(mut args: env::Args) -> Result<Config, &'static str> {
+        args.next(); // the first arg is defined by default 
 
-        let query = args[1].clone();
-        let filename = args[2].clone();
+        let query = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Insufficient parameters")
+        };
+
+        let filename = match args.next() {
+            Some(arg) => arg,
+            None => return Err("Insufficient parameters")
+        };
+
+        // ! extremely inefficient because clone creates a new allocation
+        // ? instead is much more efficient to work with references
+        // ? taking ownership of the iterators
+        // let query = args[1].clone();
+        // let filename = args[2].clone();
 
         // ! through the book this code seems to be wrong
         let case_sensitive = !env::var("CASE_INSENSITIVE").is_err();

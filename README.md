@@ -6,7 +6,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 13.2
+> Current Book Chapter: 14.1
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -190,6 +190,8 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - traits are used to describe shared behaviour in rust structs
 - the dangling reference is a problem where a reference points to other value than the value it was suppose to
 - `cargo clean` IT SAVES LIVES
+- in rust iterators are *lazy*, that is they have no effect untill you call methods to use it
+- *iterators* are one of Rust's *zero-cost abstractions*, because in the end they're all compiled to the same binary code a `for` loop will be, so they give a more readable code by not losing performance, it's a gain-gain situation
 
 
 ## ANNOTATIONS ABOUT LIFETIMES

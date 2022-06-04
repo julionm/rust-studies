@@ -3,12 +3,9 @@ use std::{env, process};
 use minigrep::Config;
 
 fn main() {
-    // panics if receive a not Unicode value
-    let args: Vec<String> = env::args().collect();
-
     // * this err value is the one passed in Err call
     // * this closure is only executed if the Result is an Err
-    let config = Config::new(&args).unwrap_or_else(|err| {
+    let config = Config::new(env::args()).unwrap_or_else(|err| {
         eprintln!("Problem parsing arguments: {}", err);
         process::exit(1);
     });

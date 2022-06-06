@@ -192,6 +192,8 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - `cargo clean` IT SAVES LIVES
 - in rust iterators are *lazy*, that is they have no effect untill you call methods to use it
 - *iterators* are one of Rust's *zero-cost abstractions*, because in the end they're all compiled to the same binary code a `for` loop will be, so they give a more readable code by not losing performance, it's a gain-gain situation
+- `///` triple slash comments are used for documenting in rust, they accept even markdown annotations in it
+- `//!` this kind of comments are used for whole descriptions, used in *crate root files* or in modules declaration
 
 
 ## ANNOTATIONS ABOUT LIFETIMES

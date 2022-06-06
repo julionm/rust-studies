@@ -6,7 +6,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 14.2
+> Current Book Chapter: 14.3
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -194,6 +194,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - *iterators* are one of Rust's *zero-cost abstractions*, because in the end they're all compiled to the same binary code a `for` loop will be, so they give a more readable code by not losing performance, it's a gain-gain situation
 - `///` triple slash comments are used for documenting in rust, they accept even markdown annotations in it
 - `//!` this kind of comments are used for whole descriptions, used in *crate root files* or in modules declaration
+- 
 
 
 ## ANNOTATIONS ABOUT LIFETIMES

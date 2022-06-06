@@ -6,7 +6,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 14.3
+> Current Book Chapter: 15
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 

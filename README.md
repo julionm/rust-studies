@@ -6,7 +6,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 15
+> Current Book Chapter: 15.2
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -237,11 +237,24 @@ When i finished the program of Chapter 12, i had some doubts about how to use my
 
 ## trying to process things
 
-what i could understand from `Box`'s is:
-- it haves some defined size, but in the book it doesn't tells how much is this size
-- seems to me that some problem with reallocation with vectors is caused, because vec! uses a `Box` under the hoods
-- and `Box` is a pointer that is *pushed onto the stack* while the data it points to is allocated in the *Heap*
-- 
+### Smart Pointers
+
+- reference is a kind of pointer, but it doesn't take ownership of the value it points to, just borrow them
+- `String`s use pointers under the hood
+- they're data structures that act like a pointer, but save some metadata and capabilities like: `String`s and `Vec<T>`
+- normally they are implemented using structs, but instead of normal structs they implement the `Deref` and `Drop` traits
+
+### Box
+
+- what i could understand from `Box`'s is:
+  - `Box` is a *Smart Pointer*
+  - it stores values(data) on the *Heap*
+  - the pointer or the *memory address* is pushed onto the *Stack*
+  - as the box stores an *memory address* it has a fixed size, so in cases like in the example with recursively types that the compiler infer an infinite size  
+    rather than using the value we intend, we can wrap it inside a `Box` that HAS a fixed size.
+  - because `Box<T>` implements the `Deref` trait, it allows the `Box` values to be treated as references
+  - with the `Drop` trait we can guarantee that in the end of the scope where `Box` was declared, either the value stored in *Heap* and the pointer stored  
+    in *Stack* are both cleaned
 
 General questions:
-- Pointers are stored inside the Stack because they have fixed size? I remember some part of the book saying it was in the Heap
+- Where are pointers stored?

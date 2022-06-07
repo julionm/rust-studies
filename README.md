@@ -101,14 +101,15 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 
 ## Future Concepts
 - Lifetimes - **OK**
-- Iterators
+- Iterators - **OK**
 - Deref coertions
 - Automatic Referencing and Deferencing
 - Generic type parameter - **OK**
 - Panics - **OK**
-- Cargo Workspaces
+- Cargo Workspaces - **OK**
 - Unsafe Rust (https://doc.rust-lang.org/nomicon/)
 - Glob
+- Variadic Functions
 
 ---
 
@@ -194,7 +195,8 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - *iterators* are one of Rust's *zero-cost abstractions*, because in the end they're all compiled to the same binary code a `for` loop will be, so they give a more readable code by not losing performance, it's a gain-gain situation
 - `///` triple slash comments are used for documenting in rust, they accept even markdown annotations in it
 - `//!` this kind of comments are used for whole descriptions, used in *crate root files* or in modules declaration
-- 
+- the types where you can't know their size during compile time is a *recursive type*
+- the `Box` is stored in the *Stack* rather it's data that it's stored in the *Heap*
 
 
 ## ANNOTATIONS ABOUT LIFETIMES
@@ -232,3 +234,14 @@ I prefered to create a separate part for lifetimes due to the amount of content 
 When i finished the program of Chapter 12, i had some doubts about how to use my program through the OS, some amazing guys helped me and that's what they told me:
 - `cargo build --release` the released artifact will be on target/debug/{project_name}
 - then, in the root directory of the application do:  `cargo install --path .`
+
+## trying to process things
+
+what i could understand from `Box`'s is:
+- it haves some defined size, but in the book it doesn't tells how much is this size
+- seems to me that some problem with reallocation with vectors is caused, because vec! uses a `Box` under the hoods
+- and `Box` is a pointer that is *pushed onto the stack* while the data it points to is allocated in the *Heap*
+- 
+
+General questions:
+- Pointers are stored inside the Stack because they have fixed size? I remember some part of the book saying it was in the Heap

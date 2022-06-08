@@ -8,7 +8,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 15.3
+> Current Book Chapter: 15.5
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -203,6 +203,10 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - the `Box` is stored in the *Stack* rather it's data that it's stored in the *Heap*
 - *deref coercion* is a conveniece Rust compiler do on function's or methods arguments, it happens when the reference type doesn't match with the ones expected for the function, then a continuing call to the deref methods happen 'till the types match
 - the `Drop` trait is used to do some action before the variable goes out of scope, so types that implement this trait may do something before those variables go out of scope
+- `Rc<T>` is for *reference counting*, it's used for counting how many references point to the same object in memory to do a safe clean up, it enables for a value to have multiple owners or the so called multiple ownership, if there are no references anymore the value can be cleaned up without invalidating any reference
+- the *reference counting* is needed when different parts of the program have to use the same value, but it's impossible to know which one will finish the use in compile time
+- `Rc::clone(&a)` is much more performative than `a.clone()`, cause it only increses the reference count rather than creating a new `a` in the memory
+- `Drop` trait automatically decreases the `Rc<T>` when the reference goes out of scope
 
 
 ## ANNOTATIONS ABOUT LIFETIMES
@@ -267,7 +271,8 @@ General questions:
 
 ## different concepts i learned through this journey
 
-- adhoc specialization: specialization is a way to treat things differently inside a function based on the args passed  
+- *adhoc specialization*: specialization is a way to treat things differently inside a function based on the args passed  
   for example, in `vec!` are different treatments based on the initial values passed to the macro, empty, primitive types and `String`.
   Adhoc in this context is a *user made* specialization, cause this specialization is only located in unstable Rust, so the
   *adhoc specialization* are basically a group of come specialization created by a user to implement the same behavior
+- *destructor*: common concept of functions that cleans instances

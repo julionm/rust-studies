@@ -110,6 +110,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - Unsafe Rust (https://doc.rust-lang.org/nomicon/)
 - Glob
 - Variadic Functions
+- Associated Types
 
 ---
 
@@ -258,3 +259,10 @@ When i finished the program of Chapter 12, i had some doubts about how to use my
 
 General questions:
 - Where are pointers stored?
+
+## different concepts i learned through this journey
+
+- adhoc specialization: specialization is a way to treat things differently inside a function based on the args passed  
+  for example, in `vec!` are different treatments based on the initial values passed to the macro, empty, primitive types and `String`.
+  Adhoc in this context is a *user made* specialization, cause this specialization is only located in unstable Rust, so the
+  *adhoc specialization* are basically a group of come specialization created by a user to implement the same behavior

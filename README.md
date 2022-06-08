@@ -198,6 +198,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - `//!` this kind of comments are used for whole descriptions, used in *crate root files* or in modules declaration
 - the types where you can't know their size during compile time is a *recursive type*
 - the `Box` is stored in the *Stack* rather it's data that it's stored in the *Heap*
+- *deref coercion* is a conveniece Rust compiler do on function's or methods arguments, it happens when the reference type doesn't match with the ones expected for the function, then a continuing call to the deref methods happen 'till the types match
 
 
 ## ANNOTATIONS ABOUT LIFETIMES

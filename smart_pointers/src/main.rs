@@ -10,7 +10,13 @@ fn main() {
     let y = MyBox::new(x);
 
     println!("{}", x);
+
+    // the compilers undertands it as *(y.deref())
     println!("{}", *y);
+
+
+    let n = MyBox::new(String::from("Rust"));
+    hello(&n);
 }
 
 // * cons list from functional programming
@@ -38,4 +44,8 @@ impl<T> Deref for MyBox<T> {
     fn deref(&self) -> &Self::Target {
         &self.0 // valor inicial da tupla
     }
+}
+
+fn hello(name: &str) {
+    println!("Hello: {}", name);
 }

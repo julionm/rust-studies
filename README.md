@@ -4,9 +4,11 @@ I commit myself to:
 - Study at least 1 hour of Rust (or Haskell) everyday
 - Think a way to automatize some of the updates using Rust
 
+> CURRENT DAYS OF CODE: 9
+
 # Rust Knowledge
 
-> Current Book Chapter: 15.2
+> Current Book Chapter: 15.3
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -111,6 +113,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - Glob
 - Variadic Functions
 - Associated Types
+- Derive
 
 ---
 
@@ -199,6 +202,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - the types where you can't know their size during compile time is a *recursive type*
 - the `Box` is stored in the *Stack* rather it's data that it's stored in the *Heap*
 - *deref coercion* is a conveniece Rust compiler do on function's or methods arguments, it happens when the reference type doesn't match with the ones expected for the function, then a continuing call to the deref methods happen 'till the types match
+- the `Drop` trait is used to do some action before the variable goes out of scope, so types that implement this trait may do something before those variables go out of scope
 
 
 ## ANNOTATIONS ABOUT LIFETIMES

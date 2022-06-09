@@ -114,6 +114,9 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - Variadic Functions
 - Associated Types
 - Derive
+- Halting Problem
+- Hamming
+- FFI
 
 ---
 
@@ -207,6 +210,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - the *reference counting* is needed when different parts of the program have to use the same value, but it's impossible to know which one will finish the use in compile time
 - `Rc::clone(&a)` is much more performative than `a.clone()`, cause it only increses the reference count rather than creating a new `a` in the memory
 - `Drop` trait automatically decreases the `Rc<T>` when the reference goes out of scope
+- `RefCell<T>` basically wraps some `unsafe` Rust code, to change a value that has been referenced before
 
 
 ## ANNOTATIONS ABOUT LIFETIMES
@@ -276,3 +280,9 @@ General questions:
   Adhoc in this context is a *user made* specialization, cause this specialization is only located in unstable Rust, so the
   *adhoc specialization* are basically a group of come specialization created by a user to implement the same behavior
 - *destructor*: common concept of functions that cleans instances
+
+### borrowing rules
+
+- in any given time, you can have *either* (but not both of) one mutable and many immutable references
+- all references must be valid
+- 

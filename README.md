@@ -117,6 +117,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - Halting Problem
 - Hamming
 - FFI
+- Bookkeeping
 
 ---
 
@@ -205,7 +206,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - the types where you can't know their size during compile time is a *recursive type*
 - the `Box` is stored in the *Stack* rather it's data that it's stored in the *Heap*
 - *deref coercion* is a conveniece Rust compiler do on function's or methods arguments, it happens when the reference type doesn't match with the ones expected for the function, then a continuing call to the deref methods happen 'till the types match
-- the `Drop` trait is used to do some action before the variable goes out of scope, so types that implement this trait may do something before those variables go out of scope
+- the `Drop` **trait** is used to do some action before the variable goes out of scope, so types that implement this trait may do something before those variables go out of scope
 - `Rc<T>` is for *reference counting*, it's used for counting how many references point to the same object in memory to do a safe clean up, it enables for a value to have multiple owners or the so called multiple ownership, if there are no references anymore the value can be cleaned up without invalidating any reference
 - the *reference counting* is needed when different parts of the program have to use the same value, but it's impossible to know which one will finish the use in compile time
 - `Rc::clone(&a)` is much more performative than `a.clone()`, cause it only increses the reference count rather than creating a new `a` in the memory

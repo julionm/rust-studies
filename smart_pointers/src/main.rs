@@ -163,3 +163,12 @@ mod tests {
         assert_eq!(mock_messenger.sent_message.borrow_mut().len(), 1);
     }
 }
+
+// Keeping Track of Borrows at Runtime with RefCell<T>
+
+/*
+ * RefCell<T>
+ * - borrow -> Ref<T>
+ * - borrow_mut -> RefMut<T>
+ */
+

@@ -8,7 +8,12 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 15.5
+> Current Book Chapter: 16
+
+Links to the following books i'll read:
+
+- *The Reference* - https://doc.rust-lang.org/reference/attributes.html
+- *The Rustonomicon* - https://doc.rust-lang.org/nomicon/index.html
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 
@@ -99,6 +104,16 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 
 `Copy` is a bitwise copy, therefore it copies every bit of the value to another memory location (variable) using the `memcpy()` function.
 
+### What is a _Reference Cycle_ and how to prevent it from leaving a *Memory Leak*?
+
+A reference cycle happens when you have different references pointing to each other, it may happen in many cases but when you think of a linked list where the values are linked using references to other list items, for example, it may occur a cycle problem when you point list item a to list item b and vice-versa, if you're using some `Rc<T>` for handling the multiple times the list item could be referenced, you may use the `Weak<T>` smart pointer to help you with that.
+
+When using the `Rc::clone` you increase the `strong_count` inside it, but the `clone` method shares the ownership so, in the end of the program, it'll not be cleaned up. But when you create a `Weak<T>` reference, instead, it increses the `weak_count` counter, this as a weak reference to the value, will be freed in the end of the execution.
+
+In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart pointer are:
+- `Rc::downgrade` receives a `Rc` reference and returns a new `Weak<T>` smart point to be used
+- `Weak::upgrade` this'll return a new `Option<Rc<T>>` that, if it's still available, may be mapped to an `Rc<T>` again.
+
 ---
 
 ## Future Concepts
@@ -118,6 +133,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - Hamming
 - FFI
 - Bookkeeping
+- Mutex/Arc/Cell
 
 ---
 
@@ -212,8 +228,7 @@ The `Clone`  is explicit, therefore it needs to be declared, as it's a more geen
 - `Rc::clone(&a)` is much more performative than `a.clone()`, cause it only increses the reference count rather than creating a new `a` in the memory
 - `Drop` trait automatically decreases the `Rc<T>` when the reference goes out of scope
 - `RefCell<T>` basically wraps some `unsafe` Rust code, to change a value that has been referenced before
-
-
+- 
 ## ANNOTATIONS ABOUT LIFETIMES
 
 I prefered to create a separate part for lifetimes due to the amount of content and complexity it took me to learn it.

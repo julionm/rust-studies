@@ -63,6 +63,7 @@ pub enum List {
 // ? again and again, doin it infinitely
 
 // ? tuple struct type
+
 struct MyBox<T>(T);
 
 impl<T> MyBox<T> {

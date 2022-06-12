@@ -4,14 +4,15 @@ I commit myself to:
 - Study at least 1 hour of Rust (or Haskell) everyday
 - Think a way to automatize some of the updates using Rust
 
-> CURRENT DAYS OF CODE: 9
+> CURRENT DAYS OF CODE: 12
 
 # Rust Knowledge
 
-> Current Book Chapter: 16
+> Current Book Chapter: 16.2
 
 Links to the following books i'll read:
 
+- *The Rust Programming Language* - https://doc.rust-lang.org/book/title-page.html (I'm here)
 - *The Reference* - https://doc.rust-lang.org/reference/attributes.html
 - *The Rustonomicon* - https://doc.rust-lang.org/nomicon/index.html
 
@@ -134,6 +135,7 @@ In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart 
 - FFI
 - Bookkeeping
 - Mutex/Arc/Cell
+- Derive
 
 ---
 
@@ -228,7 +230,10 @@ In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart 
 - `Rc::clone(&a)` is much more performative than `a.clone()`, cause it only increses the reference count rather than creating a new `a` in the memory
 - `Drop` trait automatically decreases the `Rc<T>` when the reference goes out of scope
 - `RefCell<T>` basically wraps some `unsafe` Rust code, to change a value that has been referenced before
-- 
+- *Fearless Concurrency* is how Rust calls it's features to treat concurrency issues using ownership concepts, with these new ideas, they could bring the massive amount of concurrency bugs to be compile time bugs rather than runtime, preventing unexpected errors and crashes
+
+---
+
 ## ANNOTATIONS ABOUT LIFETIMES
 
 I prefered to create a separate part for lifetimes due to the amount of content and complexity it took me to learn it.
@@ -259,13 +264,15 @@ I prefered to create a separate part for lifetimes due to the amount of content 
 
   ```
 
+---
+
 ## Build and add to PATH
 
 When i finished the program of Chapter 12, i had some doubts about how to use my program through the OS, some amazing guys helped me and that's what they told me:
 - `cargo build --release` the released artifact will be on target/debug/{project_name}
 - then, in the root directory of the application do:  `cargo install --path .`
 
-## trying to process things
+---
 
 ### Smart Pointers
 
@@ -273,6 +280,8 @@ When i finished the program of Chapter 12, i had some doubts about how to use my
 - `String`s use pointers under the hood
 - they're data structures that act like a pointer, but save some metadata and capabilities like: `String`s and `Vec<T>`
 - normally they are implemented using structs, but instead of normal structs they implement the `Deref` and `Drop` traits
+
+---
 
 ### Box
 
@@ -287,7 +296,9 @@ When i finished the program of Chapter 12, i had some doubts about how to use my
     in *Stack* are both cleaned
 
 General questions:
-- Where are pointers stored?
+- Where are pointers stored? R: In the stack, as they're memory addresses basically, they have fixed size
+
+---
 
 ## different concepts i learned through this journey
 
@@ -296,9 +307,12 @@ General questions:
   Adhoc in this context is a *user made* specialization, cause this specialization is only located in unstable Rust, so the
   *adhoc specialization* are basically a group of come specialization created by a user to implement the same behavior
 - *destructor*: common concept of functions that cleans instances
+- *deadlock*: two threads waiting for each other execution to continue, creating a no exit situation, in other words creating a *deadlock*
+
+---
 
 ### borrowing rules
 
 - in any given time, you can have *either* (but not both of) one mutable and many immutable references
 - all references must be valid
-- 
+ 

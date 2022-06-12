@@ -8,7 +8,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 16.2
+> Current Book Chapter: 16.3
 
 Links to the following books i'll read:
 
@@ -231,6 +231,9 @@ In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart 
 - `Drop` trait automatically decreases the `Rc<T>` when the reference goes out of scope
 - `RefCell<T>` basically wraps some `unsafe` Rust code, to change a value that has been referenced before
 - *Fearless Concurrency* is how Rust calls it's features to treat concurrency issues using ownership concepts, with these new ideas, they could bring the massive amount of concurrency bugs to be compile time bugs rather than runtime, preventing unexpected errors and crashes
+- the *shared memory concurrency* is like the multiple ownership covered by smart pointers, where may exist multiple owners of the same data in memory, in Rust this concepts fix perfectly to handle problems of shared memory
+- `Mutex` *mutual exclusion*
+- `mpsc` *multiple producer, single consumer*
 
 ---
 

@@ -8,7 +8,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 16.4
+> Current Book Chapter: 17.2
 
 Links to the following books i'll read:
 
@@ -238,6 +238,9 @@ In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart 
 - the `MutexGuard` smart pointer unlocks the data it's pointing when it goes out of scope
 - `Arc<T>` *atomic reference counting*
 - `Mutex<T>` just like the `Cell` family, provides *interior mutability*
+- the `Send` trait enables a type to have his ownership shared between threads
+- `Rc<T>` can't implement `Send` cause it's internal counting could be changed at the same time
+- the `Sync` trait can be implemented by types `T` where `&T` may be used between multiple threads at the same time, likely the `Mutex<T>` implements this trait
 
 ---
 

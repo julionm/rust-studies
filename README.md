@@ -8,7 +8,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 16.3
+> Current Book Chapter: 16.4
 
 Links to the following books i'll read:
 
@@ -234,6 +234,10 @@ In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart 
 - the *shared memory concurrency* is like the multiple ownership covered by smart pointers, where may exist multiple owners of the same data in memory, in Rust this concepts fix perfectly to handle problems of shared memory
 - `Mutex` *mutual exclusion*
 - `mpsc` *multiple producer, single consumer*
+- the `Mutex::lock` makes the current execution thread to wait untill the value is available, if another thread is using before
+- the `MutexGuard` smart pointer unlocks the data it's pointing when it goes out of scope
+- `Arc<T>` *atomic reference counting*
+- `Mutex<T>` just like the `Cell` family, provides *interior mutability*
 
 ---
 
@@ -318,4 +322,11 @@ General questions:
 
 - in any given time, you can have *either* (but not both of) one mutable and many immutable references
 - all references must be valid
+
+---
+
+### mutex rules
+
+- try to acquire the lock before using the data
+- when you finish to work with the data, unlock the data for other threads be able to get it
  

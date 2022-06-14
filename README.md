@@ -262,6 +262,7 @@ where
   // causing to be impossible
 
 ```
+- trait objects do the rust compiler generate code to treat *dynamic dispatch* as it's impossible to know which will be the types received, instead of generics that use *static dispatch*
 
 ---
 
@@ -340,6 +341,8 @@ General questions:
 - *destructor*: common concept of functions that cleans instances
 - *deadlock*: two threads waiting for each other execution to continue, creating a no exit situation, in other words creating a *deadlock*
 - *duck typing*: if it walks like a duck and quacks like a duck, it must be a duck!
+- *static dispatch*: the compiler knows which function with which types you're calling in compile time
+- *dynamic dispatch*: with dynamic, the compiler will only know which calls you're doing in runtime, so the code generated when using *static* and when using *dynamic* are different, when *dynamic* the program will have to discover in runtime which methods are called
 
 ---
 

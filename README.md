@@ -12,8 +12,8 @@ I commit myself to:
 
 Links to the following books i'll read:
 
-- *The Rust Programming Language* - https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/README.html **DEPRECATED**
-- *The Rust Programming Language* - https://doc.rust-lang.org/book/title-page.html (I'm here)
+- *The Rust Programming Language V2* - https://doc.rust-lang.org/book/title-page.html (I'm here)
+- - *The Rust Programming Language V1* - https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/README.html
 - *The Reference* - https://doc.rust-lang.org/reference/attributes.html
 - *The Rustonomicon* - https://doc.rust-lang.org/nomicon/index.html
 
@@ -360,3 +360,9 @@ General questions:
 - try to acquire the lock before using the data
 - when you finish to work with the data, unlock the data for other threads be able to get it
  
+--- 
+
+### Useful Links
+
+- Memory management - https://www.youtube.com/user/Computerphile/search
+- Memory management in Rust - https://deepu.tech/memory-management-in-rust/

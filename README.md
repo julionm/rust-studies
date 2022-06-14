@@ -241,6 +241,27 @@ In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart 
 - the `Send` trait enables a type to have his ownership shared between threads
 - `Rc<T>` can't implement `Send` cause it's internal counting could be changed at the same time
 - the `Sync` trait can be implemented by types `T` where `&T` may be used between multiple threads at the same time, likely the `Mutex<T>` implements this trait
+- trait bounds works as generics, but with a differencial, the trait objects allow it to be filled with any type that implements the trait at runtime, as the follow code:  
+```rust
+
+pub struct Screen<T: Draw> {
+  pub components: Vec<T>
+}
+
+impl<T> Screen<T>
+where
+  T: Draw
+  {
+    pub fn run(&self) {
+      for component in self.components.iter() {
+        component.draw();
+      }
+    }
+  }
+  // this code will only accept one concrete type at a time
+  // causing to be impossible
+
+```
 
 ---
 
@@ -318,6 +339,7 @@ General questions:
   *adhoc specialization* are basically a group of come specialization created by a user to implement the same behavior
 - *destructor*: common concept of functions that cleans instances
 - *deadlock*: two threads waiting for each other execution to continue, creating a no exit situation, in other words creating a *deadlock*
+- *duck typing*: if it walks like a duck and quacks like a duck, it must be a duck!
 
 ---
 

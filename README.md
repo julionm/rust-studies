@@ -12,6 +12,7 @@ I commit myself to:
 
 Links to the following books i'll read:
 
+- *The Rust Programming Language* - https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/README.html **DEPRECATED**
 - *The Rust Programming Language* - https://doc.rust-lang.org/book/title-page.html (I'm here)
 - *The Reference* - https://doc.rust-lang.org/reference/attributes.html
 - *The Rustonomicon* - https://doc.rust-lang.org/nomicon/index.html
@@ -121,7 +122,7 @@ In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart 
 - Lifetimes - **OK**
 - Iterators - **OK**
 - Deref coertions
-- Automatic Referencing and Deferencing
+- Automatic Referencing and Deferencing - **OK**
 - Generic type parameter - **OK**
 - Panics - **OK**
 - Cargo Workspaces - **OK**
@@ -132,9 +133,9 @@ In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart 
 - Derive
 - Halting Problem
 - Hamming
-- FFI
+- FFI (Foreign Function Interface)
 - Bookkeeping
-- Mutex/Arc/Cell
+- Mutex/Arc/Cell - **OK**
 - Derive
 
 ---
@@ -263,6 +264,7 @@ where
 
 ```
 - trait objects do the rust compiler generate code to treat *dynamic dispatch* as it's impossible to know which will be the types received, instead of generics that use *static dispatch*
+- the best introduction for Stack and Heap: **https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/the-stack-and-the-heap.html#moving**
 
 ---
 

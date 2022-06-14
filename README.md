@@ -4,7 +4,7 @@ I commit myself to:
 - Study at least 1 hour of Rust (or Haskell) everyday
 - Think a way to automatize some of the updates using Rust
 
-> CURRENT DAYS OF CODE: 13
+> CURRENT DAYS OF CODE: 15
 
 # Rust Knowledge
 

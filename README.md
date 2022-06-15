@@ -8,7 +8,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 17.3
+> Current Book Chapter: 18.1
 
 Links to the following books i'll read:
 
@@ -137,6 +137,14 @@ In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart 
 - Bookkeeping
 - Mutex/Arc/Cell - **OK**
 - Derive
+- Cool things that museun told about that i want to learn
+  - cache locality
+  - spatial locality
+  - cache coherence (for leveled cache and tlb)
+  - cache line
+  - cache miss
+  - translation lookaside buffer (tlb) 
+
 
 ---
 
@@ -265,6 +273,8 @@ where
 ```
 - trait objects do the rust compiler generate code to treat *dynamic dispatch* as it's impossible to know which will be the types received, instead of generics that use *static dispatch*
 - the best introduction for Stack and Heap: **https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/the-stack-and-the-heap.html#moving**
+- *Stack* is not shared through threads, *Heap* is
+- Rust uses a memory management of type *RAII*
 
 ---
 
@@ -345,6 +355,7 @@ General questions:
 - *duck typing*: if it walks like a duck and quacks like a duck, it must be a duck!
 - *static dispatch*: the compiler knows which function with which types you're calling in compile time
 - *dynamic dispatch*: with dynamic, the compiler will only know which calls you're doing in runtime, so the code generated when using *static* and when using *dynamic* are different, when *dynamic* the program will have to discover in runtime which methods are called
+- *RAII*: the type of memory management Rust uses, it's called *Resource Acquisition is Initialization*, when occurs an initialization the variable owns the resource, so when it goes out of scope, the variable is dropped and the memory freed
 
 ---
 
@@ -366,3 +377,4 @@ General questions:
 
 - Memory management - https://www.youtube.com/user/Computerphile/search
 - Memory management in Rust - https://deepu.tech/memory-management-in-rust/
+- Arcticle about Dynamic Storage Allocation - https://users.cs.northwestern.edu/~pdinda/ics-s05/doc/dsa.pdf

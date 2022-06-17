@@ -4,11 +4,11 @@ I commit myself to:
 - Study at least 1 hour of Rust (or Haskell) everyday
 - Think a way to automatize some of the updates using Rust
 
-> CURRENT DAYS OF CODE: 15
+> CURRENT DAYS OF CODE: 17
 
 # Rust Knowledge
 
-> Current Book Chapter: 18.1
+> Current Book Chapter: 18.2
 
 Links to the following books i'll read:
 
@@ -275,6 +275,21 @@ where
 - the best introduction for Stack and Heap: **https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/the-stack-and-the-heap.html#moving**
 - *Stack* is not shared through threads, *Heap* is
 - Rust uses a memory management of type *RAII*
+- Places where patterns can be used:
+  - `match` arms (must be exhaustive, so need to embrace all possibilities)
+  - `if let` expressions: the compiler doesn't check exhaustiveness, hence, it's not checked all possibilities, differently of `match` expressions
+  - `while let` conditional loops:
+  ```rust
+
+  let mut stack = vec![1,2,3];
+  while let Some(top) = stack.pop {
+    // some awesome code
+  }
+
+  ```
+  - `for` loops: in this type of loop, the pattern is the first value after `for` statement
+  - `let` statements
+  - function parameters
 
 ---
 
@@ -346,16 +361,18 @@ General questions:
 
 ## different concepts i learned through this journey
 
-- *adhoc specialization*: specialization is a way to treat things differently inside a function based on the args passed  
+- **adhoc specialization**: specialization is a way to treat things differently inside a function based on the args passed  
   for example, in `vec!` are different treatments based on the initial values passed to the macro, empty, primitive types and `String`.
   Adhoc in this context is a *user made* specialization, cause this specialization is only located in unstable Rust, so the
   *adhoc specialization* are basically a group of come specialization created by a user to implement the same behavior
-- *destructor*: common concept of functions that cleans instances
-- *deadlock*: two threads waiting for each other execution to continue, creating a no exit situation, in other words creating a *deadlock*
-- *duck typing*: if it walks like a duck and quacks like a duck, it must be a duck!
-- *static dispatch*: the compiler knows which function with which types you're calling in compile time
-- *dynamic dispatch*: with dynamic, the compiler will only know which calls you're doing in runtime, so the code generated when using *static* and when using *dynamic* are different, when *dynamic* the program will have to discover in runtime which methods are called
-- *RAII*: the type of memory management Rust uses, it's called *Resource Acquisition is Initialization*, when occurs an initialization the variable owns the resource, so when it goes out of scope, the variable is dropped and the memory freed
+- **destructor**: common concept of functions that cleans instances
+- **deadlock**: two threads waiting for each other execution to continue, creating a no exit situation, in other words creating a *deadlock*
+- **duck typing**: if it walks like a duck and quacks like a duck, it must be a duck!
+- **static dispatch**: the compiler knows which function with which types you're calling in compile time
+- **dynamic dispatch**: with dynamic, the compiler will only know which calls you're doing in runtime, so the code generated when using *static* and when using *dynamic* are different, when *dynamic* the program will have to discover in runtime which methods are called
+- **RAII**: the type of memory management Rust uses, it's called *Resource Acquisition is Initialization*, when occurs an initialization the variable owns the resource, so when it goes out of scope, the variable is dropped and the memory freed
+- **Flip Flop**: edge-triggered latch, it's how modern computers store binary data, changing the inner data deppending on the inputs the system receives
+- **Latch**: eletronic circuit... **STUDY MORE**
 
 ---
 

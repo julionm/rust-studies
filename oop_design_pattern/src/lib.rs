@@ -1,3 +1,5 @@
+use std::ops::Add;
+
 pub struct Post {
     state: Option<Box<dyn State>>,
     content: String
@@ -6,7 +8,7 @@ pub struct Post {
 impl Post {
     pub fn new() -> Post {
         Post {
-            state: Some(Box::new(Draft, {})),
+            state: Some(Box::new(Draft {})),
             content: String::new()
         }
     }
@@ -16,7 +18,7 @@ impl Post {
     }
 
     pub fn add_text(&mut self, text: &str) {
-        self.content.push(text);
+        self.content.add(text);
     }
 
     pub fn request_review(&mut self) {
@@ -79,6 +81,6 @@ impl State for Published {
     }
 
     fn content<'a>(&self, post: &'a Post) -> &'a str {
-        &post.contnet
+        &post.content
     }
 }

@@ -8,7 +8,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 18.2
+> Current Book Chapter: 18.3
 
 Links to the following books i'll read:
 
@@ -290,6 +290,15 @@ where
   - `for` loops: in this type of loop, the pattern is the first value after `for` statement
   - `let` statements
   - function parameters
+- *refutable patterns*: patterns where it matches all possibilities `let x = 5` is an example
+- *irrefutable patterns*: patterns where only one or few are matched, an example for this is:
+  ```rust
+    if let Some(x) = value {
+
+    }
+  ```
+  if the `value` is None, it wouldn't match
+- 
 
 ---
 

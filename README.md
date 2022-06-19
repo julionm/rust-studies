@@ -4,16 +4,16 @@ I commit myself to:
 - Study at least 1 hour of Rust (or Haskell) everyday
 - Think a way to automatize some of the updates using Rust
 
-> CURRENT DAYS OF CODE: 17
+> CURRENT DAYS OF CODE: 18
 
 # Rust Knowledge
 
-> Current Book Chapter: 18.3
+> Current Book Chapter: 19.1
 
 Links to the following books i'll read:
 
 - *The Rust Programming Language V2* - https://doc.rust-lang.org/book/title-page.html (I'm here)
-- - *The Rust Programming Language V1* - https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/README.html
+- *The Rust Programming Language V1* - https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/README.html
 - *The Reference* - https://doc.rust-lang.org/reference/attributes.html
 - *The Rustonomicon* - https://doc.rust-lang.org/nomicon/index.html
 
@@ -398,6 +398,25 @@ General questions:
 - when you finish to work with the data, unlock the data for other threads be able to get it
  
 --- 
+
+### unsafe superpowers
+
+- Dereference raw pointers
+- Call an unsafe function or method
+- Access or modify a mutable static variable
+- Implement an unsafe trait
+- Access fields of `union` s
+
+
+### unsafe superpowers annotations
+
+- **raw pointers**: they work just as any normal pointer in C/C++, references in rust are basically pointers with memory safety, can be immutable or mutable, immutable means that the pointer can't be directly assigned to after being dereferenced.
+  - are allowed to have mutable and immutable references at the same time
+  - are allowed to be null
+  - dont implement any automatic cleanup
+  - aren't guaranteed to point to valid memory
+
+---
 
 ### Useful Links
 

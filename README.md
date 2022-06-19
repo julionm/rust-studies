@@ -119,20 +119,24 @@ In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart 
 ---
 
 ## Future Concepts
+
+To fix my knowledge, in times to times, i'll try to review these items and defining them with my own words to keep remembering everything.
+
 - Lifetimes - **OK**
 - Iterators - **OK**
-- Deref coertions
+- Deref coertions - **OK**
 - Automatic Referencing and Deferencing - **OK**
 - Generic type parameter - **OK**
 - Panics - **OK**
 - Cargo Workspaces - **OK**
-- Unsafe Rust (https://doc.rust-lang.org/nomicon/)
+- Unsafe Rust - **OK**
 - Glob
 - Variadic Functions
-- Associated Types
+- Associated Types - **OK**
 - Derive
 - Halting Problem
-- Hamming
+- Hamming Algorithm
+- Review Binary Tree Algorithm
 - FFI (Foreign Function Interface) - **OK**
 - Bookkeeping
 - Mutex/Arc/Cell - **OK**

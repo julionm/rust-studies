@@ -8,7 +8,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 19.1
+> Current Book Chapter: 19.2
 
 Links to the following books i'll read:
 
@@ -403,11 +403,11 @@ General questions:
 
 ### unsafe superpowers
 
-- Dereference raw pointers
-- Call an unsafe function or method
-- Access or modify a mutable static variable
-- Implement an unsafe trait
-- Access fields of `union` s
+- Dereference raw pointers - using raw pointers is cool, but needs to be careful
+- Call an unsafe function or method - cool too, but not soo much use to this
+- Access or modify a mutable static variable - maybe nice, but maybe spend more minutes can prevent this usage
+- Implement an unsafe trait - cool but i need to study it's usage better to know the possibilities
+- Access fields of `union` s - only needed when integrating with C code
 
 
 ### unsafe superpowers annotations

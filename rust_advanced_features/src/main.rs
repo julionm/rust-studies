@@ -4,6 +4,8 @@ extern "C" {
     fn abs(input: i32) -> i32;
 }
 
+static mut HELLO_WORLD: &str = "Hello, world!"; // * fixed address in memory
+
 fn main() {
     let mut num = 6;
     // it's possible to create raw pointers in safe code
@@ -42,6 +44,11 @@ fn main() {
 
     unsafe {
         println!("Absolute value of -3 according to C: {}", abs(-3));
+    }
+
+    unsafe {
+        println!("{HELLO_WORLD}"); 
+        // when static variables are mutable, they can only be read inside an unsafe scope
     }
 }
 

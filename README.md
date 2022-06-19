@@ -133,10 +133,9 @@ In addition, the methods for manipulating an `Rc<T>` to use the `Weak<T>` smart 
 - Derive
 - Halting Problem
 - Hamming
-- FFI (Foreign Function Interface)
+- FFI (Foreign Function Interface) - **OK**
 - Bookkeeping
 - Mutex/Arc/Cell - **OK**
-- Derive
 - Cool things that museun told about that i want to learn
   - cache locality
   - spatial locality
@@ -382,6 +381,9 @@ General questions:
 - **RAII**: the type of memory management Rust uses, it's called *Resource Acquisition is Initialization*, when occurs an initialization the variable owns the resource, so when it goes out of scope, the variable is dropped and the memory freed
 - **Flip Flop**: edge-triggered latch, it's how modern computers store binary data, changing the inner data deppending on the inputs the system receives
 - **Latch**: eletronic circuit... **STUDY MORE**
+- **ABI**: the *application binary interface* defines how to call the function at the assembly level, using the "C" ables to use functions of the C programming language
+- **Mangling**: is when the compiler changes the function name to add more information so other parts of compilation process can use it
+- 
 
 ---
 

@@ -301,7 +301,7 @@ where
     }
   ```
   if the `value` is None, it wouldn't match
-- 
+- *associated types*, basically work as generic type parameters, but they don't allow multiple implementations of a trait, when using generic parameters, it's possible to create multiple implementations with different types, associated types give a possibility to use generics without allowing multiple implementations of the same trait for a struct
 
 ---
 

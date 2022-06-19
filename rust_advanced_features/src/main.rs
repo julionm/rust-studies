@@ -1,4 +1,5 @@
 use core::slice;
+use std::error::Error;
 
 extern "C" {
     fn abs(input: i32) -> i32;
@@ -75,4 +76,31 @@ fn split_at_mut(values: &mut [i32], mid: usize) -> (&mut [i32], &mut [i32]) {
             )
         )
     }
+}
+
+trait Anything {
+    type T;
+    type S;
+
+    fn some_fn(&self) -> Option<Self::T>;
+
+    fn other_gn(&self, a: &String) -> Result<Self::S, Box<dyn Error>>;
+}
+
+struct NiceStr {
+    name: String
+}
+
+impl Anything for NiceStr {
+    type T = u32;
+    type S = char;
+
+    fn some_fn(&self) -> Option<Self::T> {
+        Some(3)
+    }
+
+    fn other_gn(&self, a: &String) -> Result<Self::S, Box<dyn Error>> {
+        Ok('a')
+    }
+
 }

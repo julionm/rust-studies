@@ -1,9 +1,19 @@
 use core::slice;
 use std::error::Error;
 use std::ops::Add;
+use std::fmt::{Display, Formatter};
 
 extern "C" {
     fn abs(input: i32) -> i32;
+}
+
+// * creating a wrapper to extend the type that isn't on our crate
+struct Wrapper(Vec<String>);
+
+impl Display for Wrapper {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        write!(f, "[{}]", self.0.join(", "))
+    }
 }
 
 #[derive(Debug, Copy, Clone, PartialEq)]
@@ -22,6 +32,17 @@ impl Add for Point {
         }
     }
 }
+
+// * sample implementation of Display for Point
+// impl Display for Point {
+//     fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+//         write!(f, "({}, {})", self.x, self.y)
+//     }
+// }
+
+// impl SuperTrait for Point {
+
+// }
 
 struct Millimeters(u32);
 struct Meters(u32);
@@ -71,6 +92,12 @@ impl Dog {
 impl Animal for Dog {
     fn baby_name() -> String {
         String::from("puppy")
+    }
+}
+
+trait SuperTrait: Display {
+    fn printing_btfl(&self) {
+        println!()
     }
 }
 

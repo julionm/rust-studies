@@ -1,8 +1,77 @@
 use core::slice;
 use std::error::Error;
+use std::ops::Add;
 
 extern "C" {
     fn abs(input: i32) -> i32;
+}
+
+#[derive(Debug, Copy, Clone, PartialEq)]
+struct Point {
+    x: i32,
+    y: i32
+}
+
+impl Add for Point {
+    type Output = Point;
+
+    fn add(self, other: Point) -> Point {
+        Point { 
+            x: self.x + other.x,
+            y: self.y + other.y
+        }
+    }
+}
+
+struct Millimeters(u32);
+struct Meters(u32);
+
+impl Add<Meters> for Millimeters {
+    type Output = Millimeters;
+
+    fn add(self, rhs: Meters) -> Self::Output {
+        Millimeters(self.0 + (rhs.0 * 1000))
+    }
+}
+
+struct Human;
+
+trait Wizard {
+    fn fly(&self);
+}
+
+trait Pilot {
+    fn fly(&self);
+}
+
+impl Pilot for Human {
+    fn fly(&self) {
+        println!("Fly like the old movies")
+    }
+}
+
+impl Wizard for Human {
+    fn fly(&self) {
+        println!("Wingardiu Leviosa")
+    }
+}
+
+trait Animal {
+    fn baby_name() -> String;
+}
+
+struct Dog;
+
+impl Dog {
+    fn baby_name() -> String {
+        String::from("Spot")
+    }
+}
+
+impl Animal for Dog {
+    fn baby_name() -> String {
+        String::from("puppy")
+    }
 }
 
 static mut HELLO_WORLD: &str = "Hello, world!"; // * fixed address in memory
@@ -51,6 +120,28 @@ fn main() {
         println!("{HELLO_WORLD}"); 
         // when static variables are mutable, they can only be read inside an unsafe scope
     }
+
+
+    let point1 = Point {
+        x: 3,
+        y: 4
+    };
+
+    let point2 = Point {
+        x: 4,
+        y: 6
+    };
+
+    let point3 = point1 + point2;
+
+    println!("{:?}", point3);
+
+    let h = Human;
+
+    Wizard::fly(&h);
+    Pilot::fly(&h);
+
+    println!("A baby dog is called {}", <Dog as Animal>::baby_name());
 }
 
 // so the unsafe keyword creates an unsafe scope, in other words

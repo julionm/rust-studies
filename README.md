@@ -388,6 +388,7 @@ General questions:
 - **ABI**: the *application binary interface* defines how to call the function at the assembly level, using the "C" ables to use functions of the C programming language
 - **Mangling**: is when the compiler changes the function name to add more information so other parts of compilation process can use it
 - **Operator Overloading**: it's the way to overload basic operations of operators like `+` depending on the values passed
+- **Newtype Pattern**: the *newtype pattern* consists of the process of creating a new type when in some cases it's not possible to extend a type of the language, this was used in Haskell previously
 
 ---
 

@@ -8,7 +8,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 19.3
+> Current Book Chapter: 19.5
 
 Links to the following books i'll read:
 
@@ -136,7 +136,10 @@ To fix my knowledge, in times to times, i'll try to review these items and defin
 - Derive
 - Halting Problem
 - Hamming Algorithm
-- Review Binary Tree Algorithm
+- Review Algorithms
+  - Hash Table
+  - Binary Tree
+  - Others..
 - FFI (Foreign Function Interface) - **OK**
 - Bookkeeping
 - Mutex/Arc/Cell - **OK**
@@ -146,8 +149,8 @@ To fix my knowledge, in times to times, i'll try to review these items and defin
   - cache coherence (for leveled cache and tlb)
   - cache line
   - cache miss
-  - translation lookaside buffer (tlb) 
-
+  - translation lookaside buffer (tlb)
+- HIR/MIR
 
 ---
 
@@ -302,6 +305,9 @@ where
   ```
   if the `value` is None, it wouldn't match
 - *associated types*, basically work as generic type parameters, but they don't allow multiple implementations of a trait, when using generic parameters, it's possible to create multiple implementations with different types, associated types give a possibility to use generics without allowing multiple implementations of the same trait for a struct
+- the *never type* operator (`!`), represents a non-value, in other words when Rust's compiler starts to look for types, it ignores the *never type*'s, just like in `match` arms, one could be an `i32` and the other a `continue`, that has the *never type*
+- `fn` is a function pointer, it implements all the closure's traits: `Fn`, `FnMut` and `FnOnce`, so whenever a code is expecting a closure, you can pass a function pointer `fn`
+- `Fn` is a trait that represents a closure, otherwise `fn` is a type representing a function
 
 ---
 
@@ -389,6 +395,8 @@ General questions:
 - **Mangling**: is when the compiler changes the function name to add more information so other parts of compilation process can use it
 - **Operator Overloading**: it's the way to overload basic operations of operators like `+` depending on the values passed
 - **Newtype Pattern**: the *newtype pattern* consists of the process of creating a new type when in some cases it's not possible to extend a type of the language, this was used in Haskell previously
+- **empty type**: an empty type is a way to represent the non-presence of a value, in Rust it's called the *never type* because it represents the never returning of a function
+- **DST**: *dynammically sized types*, types that don't have their real size known in compile time
 
 ---
 

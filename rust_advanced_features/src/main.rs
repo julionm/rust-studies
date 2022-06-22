@@ -169,6 +169,8 @@ fn main() {
     Pilot::fly(&h);
 
     println!("A baby dog is called {}", <Dog as Animal>::baby_name());
+
+    do_twice(add_one, 5);
 }
 
 // so the unsafe keyword creates an unsafe scope, in other words
@@ -221,4 +223,12 @@ impl Anything for NiceStr {
         Ok('a')
     }
 
+}
+
+fn add_one(arg: i32) -> i32 {
+    arg + 1
+}
+
+fn do_twice(f: fn(i32) -> i32, arg: i32) -> i32 {
+    f(arg) + f(arg)
 }

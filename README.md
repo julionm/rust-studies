@@ -4,7 +4,7 @@ I commit myself to:
 - Study at least 1 hour of Rust (or Haskell) everyday
 - Think a way to automatize some of the updates using Rust
 
-> CURRENT DAYS OF CODE: 20
+> CURRENT DAYS OF CODE: 22
 
 # Rust Knowledge
 
@@ -308,6 +308,7 @@ where
 - the *never type* operator (`!`), represents a non-value, in other words when Rust's compiler starts to look for types, it ignores the *never type*'s, just like in `match` arms, one could be an `i32` and the other a `continue`, that has the *never type*
 - `fn` is a function pointer, it implements all the closure's traits: `Fn`, `FnMut` and `FnOnce`, so whenever a code is expecting a closure, you can pass a function pointer `fn`
 - `Fn` is a trait that represents a closure, otherwise `fn` is a type representing a function
+- `derive` generates an implementation of various traits for a struct
 
 ---
 
@@ -430,6 +431,21 @@ General questions:
   - are allowed to be null
   - dont implement any automatic cleanup
   - aren't guaranteed to point to valid memory
+
+---
+
+### macros lessons
+
+The term `macro` is used to define four differente things
+- *declarative* macros with `macro_rules!`
+- custom `#[derive]` macros that specify code added with the `derive` attribute used on structs and enums
+- attribute-like macros that defines custom attributes usable on any item
+- function-like macros that look like function calls but operate on the tokens specified as their argument
+
+- "macros are a way of writing code that writes other code, which is known as *metaprogramming*"
+- macros are expanded before the compiler interprets the meaning of the code, making it possible to implement traits on types, a function can't because it's called in runtime
+- macros can receive a variable number of parameters
+- macros have to be brought into scope *before* the calls to them
 
 ---
 

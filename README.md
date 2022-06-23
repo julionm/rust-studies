@@ -16,6 +16,7 @@ Links to the following books i'll read:
 - *The Rust Programming Language V1* - https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/README.html
 - *The Reference* - https://doc.rust-lang.org/reference/attributes.html
 - *The Rustonomicon* - https://doc.rust-lang.org/nomicon/index.html
+- *The Little Book of Rust Macros* - https://veykril.github.io/tlborm/
 
 Some questions I asked myself, to keep track of what I was learning through the reading of ‘’The Rust Programming Language", available at: https://doc.rust-lang.org/book/.
 

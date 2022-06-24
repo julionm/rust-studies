@@ -8,7 +8,7 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 20
+> Current Book Chapter: 20.1
 
 Links to the following books i'll read:
 

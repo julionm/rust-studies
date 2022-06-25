@@ -4,11 +4,11 @@ I commit myself to:
 - Study at least 1 hour of Rust (or Haskell) everyday
 - Think a way to automatize some of the updates using Rust
 
-> CURRENT DAYS OF CODE: 22
+> CURRENT DAYS OF CODE: 23
 
 # Rust Knowledge
 
-> Current Book Chapter: 20.2
+> Current Book Chapter: 20.3
 
 Links to the following books i'll read:
 
@@ -152,6 +152,8 @@ To fix my knowledge, in times to times, i'll try to review these items and defin
   - cache miss
   - translation lookaside buffer (tlb)
 - HIR/MIR
+- Fork/Join model
+- single-threaded async I/O model
 
 ---
 

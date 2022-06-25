@@ -4,7 +4,7 @@ I commit myself to:
 - Study at least 1 hour of Rust (or Haskell) everyday
 - Think a way to automatize some of the updates using Rust
 
-> CURRENT DAYS OF CODE: 23
+> CURRENT DAYS OF CODE: 24
 
 # Rust Knowledge
 
@@ -401,6 +401,7 @@ General questions:
 - **Newtype Pattern**: the *newtype pattern* consists of the process of creating a new type when in some cases it's not possible to extend a type of the language, this was used in Haskell previously
 - **empty type**: an empty type is a way to represent the non-presence of a value, in Rust it's called the *never type* because it represents the never returning of a function
 - **DST**: *dynammically sized types*, types that don't have their real size known in compile time
+- **RFC**: *Request For Comments* is a process where the language users could create an suggestion or improvement to Rust to be done
 
 ---
 

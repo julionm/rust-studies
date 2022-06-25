@@ -8,11 +8,9 @@ I commit myself to:
 
 # Rust Knowledge
 
-> Current Book Chapter: 20.3
-
 Links to the following books i'll read:
 
-- *The Rust Programming Language V2* - https://doc.rust-lang.org/book/title-page.html (I'm here)
+- *The Rust Programming Language V2* - https://doc.rust-lang.org/book/title-page.html - **FINISHED**
 - *The Rust Programming Language V1* - https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/README.html
 - *The Reference* - https://doc.rust-lang.org/reference/attributes.html
 - *The Rustonomicon* - https://doc.rust-lang.org/nomicon/index.html
@@ -134,12 +132,13 @@ To fix my knowledge, in times to times, i'll try to review these items and defin
 - Glob
 - Variadic Functions
 - Associated Types - **OK**
-- Derive
+- Derive - **OK**
 - Halting Problem
 - Hamming Algorithm
 - Review Algorithms
   - Hash Table
   - Binary Tree
+  - Binary Search - **OK**
   - Others..
 - FFI (Foreign Function Interface) - **OK**
 - Bookkeeping
